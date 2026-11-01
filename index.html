@@ -3,37 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STEAM კლუბის პროექტები</title>
+    <title>სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა - კლუბები</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f7f6; color: #333; }
-        nav { background: #2c3e50; padding: 15px; text-align: center; }
-        nav a { color: white; text-decoration: none; padding: 10px 15px; display: inline-block; font-weight: bold; font-size: 14px; }
-        nav a:hover, nav a.active { background: #e67e22; border-radius: 4px; }
-        .container { max-width: 900px; margin: 30px auto; padding: 30px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h2 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f7f6; color: #333; scroll-behavior: smooth; }
+        nav { background: #2c3e50; padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        nav a { color: white; text-decoration: none; padding: 10px 12px; display: inline-block; font-weight: bold; font-size: 13px; transition: 0.3s; }
+        nav a:hover { background: #e67e22; border-radius: 4px; }
+        
+        header { text-align: center; padding: 30px 20px; background: #34495e; color: white; }
+        
+        /* ლოგოების კონტეინერი */
+        .logos-container { text-align: center; background: white; padding: 15px; border-bottom: 2px solid #ecf0f1; display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; }
+        .logos-container img { height: 60px; object-fit: contain; }
+
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
+        section { background: white; margin: 25px 0; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 0; }
         ul { line-height: 1.8; }
+        .gallery { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+        .photo-box { background: #ecf0f1; padding: 25px; border-radius: 6px; flex: 1; min-width: 220px; text-align: center; color: #7f8c8d; font-weight: bold; }
         footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; font-size: 14px; }
     </style>
 </head>
 <body>
 
+    <!-- ლოგოების სექცია (სახელები მიუსადაგეთ თქვენს ატვირთულ სურათებს) -->
+    <div class="logos-container">
+        <img src="school-logo.png" alt="სკოლის ლოგო">
+        <img src="steam-logo.png" alt="STEAM კლუბის ლოგო">
+        <img src="robolab-logo.png" alt="ROBOLAB ლოგო">
+    </div>
+
+    <!-- ნავიგაციის მენიუ (ჩანართები) -->
     <nav>
-        <a href="index.html">მთავარი</a>
-        <a href="steam.html" class="active">STEAM პროექტები</a>
-        <a href="robolab-projects.html">ROBOLAB პროექტები</a>
-        <a href="robolab-meetings.html">ROBOLAB შეხვედრები</a>
-        <a href="gallery.html">გალერეა</a>
-        <a href="innovations.html">ინოვაციები</a>
+        <a href="#steam-projects">STEAM პროექტები</a>
+        <a href="#robolab-projects">ROBOLAB პროექტები</a>
+        <a href="#robolab-meetings">ROBOLAB შეხვედრები</a>
+        <a href="#gallery">გალერეა</a>
+        <a href="#innovations">ინოვაციები</a>
     </nav>
 
+    <header>
+        <h1>სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა</h1>
+        <p>რობოტიკისა და STEAM კლუბების ოფიციალური ვებ-გვერდი</p>
+    </header>
+
     <div class="container">
-        <h2>STEAM კლუბი "THINK • CREATE • INNOVATE" - ის პროექტები</h2>
-        <p>გაეცანით ჩვენი კლუბის წევრების მიერ შექმნილ ინტერდისციპლინურ და შემოქმედებით პროექტებს:</p>
-        <ul>
-            <li><strong>ეკოლოგიური ინიციატივები:</strong> ჭკვიანი სათბურების მოდელები და გარემოს დამცავი კონსტრუქციები.</li>
-            <li><strong>მეცნიერული ექსპერიმენტები:</strong> ფიზიკისა და ქიმიის სახალისო პრაქტიკული კვლევები.</li>
-            <li><strong>ხელოვნება და ტექნოლოგია (Art+Tech):</strong> ციფრული დიზაინი და არტ-ინსტალაციები.</li>
-        </ul>
+
+        <!-- 1. STEAM კლუბის პროექტები -->
+        <section id="steam-projects">
+            <h2>STEAM კლუბი "THINK • CREATE • INNOVATE" - ის პროექტები</h2>
+            <p>გაეცანით ჩვენი კლუბის წევრების მიერ შექმნილ ინტერდისციპლინურ და შემოქმედებით პროექტებს:</p>
+            <ul>
+                <li><strong>ეკოლოგიური ინიციატივები:</strong> ჭკვიანი სათბურების მოდელები და გარემოს დამცავი კონსტრუქციები.</li>
+                <li><strong>მეცნიერული ექსპერიმენტები:</strong> ფიზიკისა და ქიმიის სახალისო პრაქტიკული კვლევები.</li>
+                <li><strong>ხელოვნება და ტექნოლოგია (Art+Tech):</strong> ციფრული დიზაინი და არტ-ინსტალაციები.</li>
+            </ul>
+        </section>
+
+        <!-- 2. ROBOLAB პროექტები -->
+        <section id="robolab-projects">
+            <h2>რობოტიკის კლუბი "ROBOLAB" -ის პროექტები</h2>
+            <p>ინოვაციური საინჟინრო მიღწევები და ავტომატიზრებული სისტემები:</p>
+            <ul>
+                <li><strong>ავტონომიური რობოტები:</strong> ლაბირინთის გამვლელი და ხაზის მიმყოლი რობოტების აწყობა.</li>
+                <li><strong>მრავალფუნქციური მექანიზმები:</strong> LEGO Mindstorms და Arduino პლატფორმებზე დაფუძნებული მოწყობილობები.</li>
+            </ul>
+        </section>
+
+        <!-- 3. ROBOLAB შეხვედრები -->
+        <section id="robolab-meetings">
+            <h2>რობოტიკის კლუბი "ROBOLAB" -ის შეხვედრები</h2>
+            <p>კლუბის წევრთა ყოველკვირეული აქტივობები, დისკუსიები და პრაქტიკული სესიები:</p>
+            <ul>
+                <li><strong>თეორიული ნაწილი:</strong> ალგორითმებისა და სქემების დაპროექტება.</li>
+                <li><strong>პრაქტიკული ვორქშოფები:</strong> გუნდური მუშაობა, ტექნიკური გამოწვევების გადაჭრა და კონსტრუირება.</li>
+            </ul>
+        </section>
+
+        <!-- 4. გალერეა -->
+        <section id="gallery">
+            <h2>გალერეა</h2>
+            <p>ფოტომასალა ჩვენი კლუბების ყოველდღიური მუშაობიდან და წარმატებებიდან:</p>
+            <div class="gallery">
+                <div class="photo-box">ფოტო 1: რობოტიკის ლაბორატორია</div>
+                <div class="photo-box">ფოტო 2: STEAM ფესტივალი</div>
+                <div class="photo-box">ფოტო 3: გუნდური მუშაობის პროცესი</div>
+            </div>
+        </section>
+
+        <!-- 5. ინოვაციები -->
+        <section id="innovations">
+            <h2>ინოვაციები</h2>
+            <p>თანამედროვე ტექნოლოგიური ტენდენციები, იდეები და სამომავლო გეგმები:</p>
+            <ul>
+                <li>ხელოვნური ინტელექტისა და მანქანური სწავლების ელემენტები ჩვენს პროექტებში.</li>
+                <li>3D ბეჭდვისა და პროტოტიპირების ახალი შესაძლებლობები სკოლაში.</li>
+            </ul>
+        </section>
+
     </div>
 
     <footer>
