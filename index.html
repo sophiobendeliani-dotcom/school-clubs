@@ -7,12 +7,12 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f7f6; color: #333; scroll-behavior: smooth; }
         nav { background: #2c3e50; padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
-        nav a { color: white; text-decoration: none; padding: 10px 12px; display: inline-block; font-weight: bold; font-size: 13px; transition: 0.3s; }
+        nav a { color: white; text-decoration: none; padding: 10px 14px; display: inline-block; font-weight: bold; font-size: 13px; transition: 0.3s; }
         nav a:hover { background: #e67e22; border-radius: 4px; }
         
         header { text-align: center; padding: 30px 20px; background: #34495e; color: white; }
         
-        /* ლოგოების კონტეინერი */
+        /* ლოგოების სექციის სტილი */
         .logos-container { text-align: center; background: white; padding: 15px; border-bottom: 2px solid #ecf0f1; display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; }
         .logos-container img { height: 60px; object-fit: contain; }
 
@@ -20,21 +20,29 @@
         section { background: white; margin: 25px 0; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         h2 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 0; }
         ul { line-height: 1.8; }
-        .gallery { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
-        .photo-box { background: #ecf0f1; padding: 25px; border-radius: 6px; flex: 1; min-width: 220px; text-align: center; color: #7f8c8d; font-weight: bold; }
+
+        /* ავტომატური ბადე (Grid) გალერეისთვის */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
+        .gallery img:hover { transform: scale(1.03); }
+
+        /* ღილაკის სტილი ყოველკვირეული ფოტოების ალბომისთვის */
+        .album-btn { display: inline-block; background: #e67e22; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; transition: 0.3s; }
+        .album-btn:hover { background: #d35400; }
+
         footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <!-- ლოგოების სექცია (სახელები მიუსადაგეთ თქვენს ატვირთულ სურათებს) -->
+    <!-- 1. ლოგოები -->
     <div class="logos-container">
         <img src="school-logo.png" alt="სკოლის ლოგო">
         <img src="steam-logo.png" alt="STEAM კლუბის ლოგო">
         <img src="robolab-logo.png" alt="ROBOLAB ლოგო">
     </div>
 
-    <!-- ნავიგაციის მენიუ (ჩანართები) -->
+    <!-- 2. ნავიგაციის ჩანართები -->
     <nav>
         <a href="#steam-projects">STEAM პროექტები</a>
         <a href="#robolab-projects">ROBOLAB პროექტები</a>
@@ -50,7 +58,7 @@
 
     <div class="container">
 
-        <!-- 1. STEAM კლუბის პროექტები -->
+        <!-- STEAM პროექტები -->
         <section id="steam-projects">
             <h2>STEAM კლუბი "THINK • CREATE • INNOVATE" - ის პროექტები</h2>
             <p>გაეცანით ჩვენი კლუბის წევრების მიერ შექმნილ ინტერდისციპლინურ და შემოქმედებით პროექტებს:</p>
@@ -61,7 +69,7 @@
             </ul>
         </section>
 
-        <!-- 2. ROBOLAB პროექტები -->
+        <!-- ROBOLAB პროექტები -->
         <section id="robolab-projects">
             <h2>რობოტიკის კლუბი "ROBOLAB" -ის პროექტები</h2>
             <p>ინოვაციური საინჟინრო მიღწევები და ავტომატიზრებული სისტემები:</p>
@@ -71,28 +79,32 @@
             </ul>
         </section>
 
-        <!-- 3. ROBOLAB შეხვედრები -->
+        <!-- ROBOLAB შეხვედრები -->
         <section id="robolab-meetings">
             <h2>რობოტიკის კლუბი "ROBOLAB" -ის შეხვედრები</h2>
-            <p>კლუბის წევრთა ყოველკვირეული აქტივობები, დისკუსიები და პრაქტიკული სესიები:</p>
-            <ul>
-                <li><strong>თეორიული ნაწილი:</strong> ალგორითმებისა და სქემების დაპროექტება.</li>
-                <li><strong>პრაქტიკული ვორქშოფები:</strong> გუნდური მუშაობა, ტექნიკური გამოწვევების გადაჭრა და კონსტრუირება.</li>
-            </ul>
+            <p>ჩვენი ყოველკვირეული შეხვედრები, დისკუსიები და პრაქტიკული ვორქშოფები.</p>
+            <p>ყოველკვირეული შეხვედრების სრული ფოტოარქივის სანახავად გადადით ალბომში:</p>
+            
+            <!-- აქ ჩასვით თქვენი Google Drive / Cloud ფოლდერის ბმული -->
+            <a href="https://drive.google.com" target="_blank" class="album-btn">
+                📁 იხილეთ ყოველკვირეული შეხვედრების ფოტოები
+            </a>
         </section>
 
-        <!-- 4. გალერეა -->
+        <!-- გალერეა -->
         <section id="gallery">
             <h2>გალერეა</h2>
-            <p>ფოტომასალა ჩვენი კლუბების ყოველდღიური მუშაობიდან და წარმატებებიდან:</p>
+            <p>ფოტომასალა ჩვენი კლუბების საქმიანობიდან:</p>
+            
             <div class="gallery">
-                <div class="photo-box">ფოტო 1: რობოტიკის ლაბორატორია</div>
-                <div class="photo-box">ფოტო 2: STEAM ფესტივალი</div>
-                <div class="photo-box">ფოტო 3: გუნდური მუშაობის პროცესი</div>
+                <!-- ფოტოების ჩამონათვალი (დაამატეთ რამდენი ფოტოც გინდათ) -->
+                <img src="photo1.jpg" alt="ფოტო 1">
+                <img src="photo2.jpg" alt="ფოტო 2">
+                <img src="photo3.jpg" alt="ფოტო 3">
             </div>
         </section>
 
-        <!-- 5. ინოვაციები -->
+        <!-- ინოვაციები -->
         <section id="innovations">
             <h2>ინოვაციები</h2>
             <p>თანამედროვე ტექნოლოგიური ტენდენციები, იდეები და სამომავლო გეგმები:</p>
