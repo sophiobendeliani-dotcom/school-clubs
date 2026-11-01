@@ -3,55 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>რობოტიკისა და STEAM კლუბი</title>
+    <title>STEAM კლუბის პროექტები</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f7f6; color: #333; }
-        header { text-align: center; padding: 40px; background: #2c3e50; color: white; border-radius: 8px; }
-        section { background: white; margin: 20px 0; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f7f6; color: #333; }
+        nav { background: #2c3e50; padding: 15px; text-align: center; }
+        nav a { color: white; text-decoration: none; padding: 10px 15px; display: inline-block; font-weight: bold; font-size: 14px; }
+        nav a:hover, nav a.active { background: #e67e22; border-radius: 4px; }
+        .container { max-width: 900px; margin: 30px auto; padding: 30px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         h2 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
         ul { line-height: 1.8; }
-        .gallery { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
-        .photo-box { background: #ecf0f1; padding: 20px; border-radius: 6px; flex: 1; min-width: 200px; text-align: center; color: #7f8c8d; }
-        .btn { display: inline-block; background: #e67e22; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; }
-        .btn:hover { background: #d35400; }
-        footer { text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 14px; }
+        footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა</h1>
-        <h2>რობოტიკისა და STEAM კლუბი</h2>
-        <p>აღმოაჩინე ინოვაციებისა და ტექნოლოგიების სამყარო ჩვენთან ერთად!</p>
-    </header>
+    <nav>
+        <a href="index.html">მთავარი</a>
+        <a href="steam.html" class="active">STEAM პროექტები</a>
+        <a href="robolab-projects.html">ROBOLAB პროექტები</a>
+        <a href="robolab-meetings.html">ROBOLAB შეხვედრები</a>
+        <a href="gallery.html">გალერეა</a>
+        <a href="innovations.html">ინოვაციები</a>
+    </nav>
 
-    <section>
-        <h2>🔬 ჩვენი აქტივობები და მიმართულებები</h2>
+    <div class="container">
+        <h2>STEAM კლუბი "THINK • CREATE • INNOVATE" - ის პროექტები</h2>
+        <p>გაეცანით ჩვენი კლუბის წევრების მიერ შექმნილ ინტერდისციპლინურ და შემოქმედებით პროექტებს:</p>
         <ul>
-            <li><strong>რობოტიკა და პროგრამირება:</strong> LEGO კონსტრუქტორებით რობოტების აწყობა და მათი პროგრამული უზრუნველყოფა.</li>
-            <li><strong>3D მოდელირება:</strong> სამგანზომიანი ობიექტების დიზაინის შექმნა და ბეჭდვა.</li>
-            <li><strong>საინჟინრო გამოწვევები:</strong> სახალისო მეცნიერული ექსპერიმენტები და პრაქტიკული ამოცანები.</li>
+            <li><strong>ეკოლოგიური ინიციატივები:</strong> ჭკვიანი სათბურების მოდელები და გარემოს დამცავი კონსტრუქციები.</li>
+            <li><strong>მეცნიერული ექსპერიმენტები:</strong> ფიზიკისა და ქიმიის სახალისო პრაქტიკული კვლევები.</li>
+            <li><strong>ხელოვნება და ტექნოლოგია (Art+Tech):</strong> ციფრული დიზაინი და არტ-ინსტალაციები.</li>
         </ul>
-    </section>
-
-    <section>
-        <h2>💡 მოსწავლეთა პროექტები</h2>
-        <p>იხილეთ ჩვენი კლუბის წევრების მიერ შექმნილი ინოვაციური ნამუშევრები:</p>
-        <div class="gallery">
-            <div class="photo-box">ფოტო 1: რობოტის აწყობის პროცესი</div>
-            <div class="photo-box">ფოტო 2: 3D პრინტერით დამზადებული მოდელი</div>
-            <div class="photo-box">ფოტო 3: STEAM ფესტივალი</div>
-        </div>
-    </section>
-
-    <section>
-        <h2>📞 დაგვიკავშირდით</h2>
-        <p>გაქვთ კითხვები ან გსურთ კლუბში გაწევრიანება? მოგვწერეთ სკოლის ოფიციალურ გვერდზე:</p>
-        <a href="#" class="btn">მოგვწერეთ ფეისბუქზე</a>
-    </section>
+    </div>
 
     <footer>
-        <p>&copy; 2026 რობოტიკისა და STEAM კლუბი | ზუგდიდის №4 საჯარო სკოლა</p>
+        <p>&copy; 2026 სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა | ყველა უფლება დაცულია</p>
     </footer>
 
 </body>
