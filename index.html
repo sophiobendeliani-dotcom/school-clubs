@@ -7,12 +7,12 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f7f6; color: #333; scroll-behavior: smooth; }
         nav { background: #2c3e50; padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
-        nav a { color: white; text-decoration: none; padding: 10px 14px; display: inline-block; font-weight: bold; font-size: 13px; transition: 0.3s; }
+        nav a { color: white; text-decoration: none; padding: 10px 12px; display: inline-block; font-weight: bold; font-size: 13px; transition: 0.3s; }
         nav a:hover { background: #e67e22; border-radius: 4px; }
         
         header { text-align: center; padding: 30px 20px; background: #34495e; color: white; }
         
-        /* ლოგოების სექციის სტილი */
+        /* ლოგოების სექცია */
         .logos-container { text-align: center; background: white; padding: 15px; border-bottom: 2px solid #ecf0f1; display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; }
         .logos-container img { height: 60px; object-fit: contain; }
 
@@ -21,104 +21,75 @@
         h2 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 0; }
         ul { line-height: 1.8; }
 
-        /* ავტომატური ბადე (Grid) გალერეისთვის */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
-        .gallery img:hover { transform: scale(1.03); }
+        /* დანომრილი საქაღალდეების ბადე (Grid) */
+        .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 15px; }
+        .folder-card { border: 2px solid #e0e0e0; padding: 15px; border-radius: 8px; text-align: center; background: #ffffff; transition: 0.3s; }
+        .folder-card:hover { border-color: #e67e22; background: #fffdf9; transform: translateY(-3px); }
+        .folder-icon { font-size: 40px; margin-bottom: 5px; color: #f39c12; }
+        .folder-title { font-weight: bold; color: #2c3e50; font-size: 16px; margin-bottom: 10px; }
 
-        /* ღილაკის სტილი ყოველკვირეული ფოტოების ალბომისთვის */
-        .album-btn { display: inline-block; background: #e67e22; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; transition: 0.3s; }
-        .album-btn:hover { background: #d35400; }
+        /* ფოტოების ბადე საქაღალდის შიგნით */
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 10px; }
+        .photo-grid img { width: 100%; height: 120px; object-fit: cover; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+        /* ვიდეოების კონტეინერი */
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; margin-top: 15px; border-radius: 8px; overflow: hidden; background: #000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
         footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <!-- 1. ლოგოები -->
+    <!-- ლოგოების სექცია -->
     <div class="logos-container">
         <img src="school-logo.png" alt="სკოლის ლოგო">
         <img src="steam-logo.png" alt="STEAM კლუბის ლოგო">
         <img src="robolab-logo.png" alt="ROBOLAB ლოგო">
     </div>
 
-    <!-- 2. ნავიგაციის ჩანართები -->
+    <!-- ნავიგაციის მენიუ -->
     <nav>
+        <a href="#top">მთავარი</a>
         <a href="#steam-projects">STEAM პროექტები</a>
         <a href="#robolab-projects">ROBOLAB პროექტები</a>
         <a href="#robolab-meetings">ROBOLAB შეხვედრები</a>
         <a href="#gallery">გალერეა</a>
+        <a href="#videos">ვიდეოები</a>
         <a href="#innovations">ინოვაციები</a>
     </nav>
 
-    <header>
+    <header id="top">
         <h1>სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა</h1>
         <p>რობოტიკისა და STEAM კლუბების ოფიციალური ვებ-გვერდი</p>
     </header>
 
     <div class="container">
 
-        <!-- STEAM პროექტები -->
+        <!-- 1. STEAM პროექტები -->
         <section id="steam-projects">
             <h2>STEAM კლუბი "THINK • CREATE • INNOVATE" - ის პროექტები</h2>
-            <p>გაეცანით ჩვენი კლუბის წევრების მიერ შექმნილ ინტერდისციპლინურ და შემოქმედებით პროექტებს:</p>
+            <p>გაეცანით ჩვენი კლუბის წევრების მიერ შექმნილ პროექტებს:</p>
             <ul>
-                <li><strong>ეკოლოგიური ინიციატივები:</strong> ჭკვიანი სათბურების მოდელები და გარემოს დამცავი კონსტრუქციები.</li>
-                <li><strong>მეცნიერული ექსპერიმენტები:</strong> ფიზიკისა და ქიმიის სახალისო პრაქტიკული კვლევები.</li>
-                <li><strong>ხელოვნება და ტექნოლოგია (Art+Tech):</strong> ციფრული დიზაინი და არტ-ინსტალაციები.</li>
+                <li><strong>ეკოლოგიური ინიციატივები:</strong> ჭკვიანი სათბურების მოდელები.</li>
+                <li><strong>მეცნიერული ექსპერიმენტები:</strong> ფიზიკისა და ქიმიის პრაქტიკული კვლევები.</li>
             </ul>
         </section>
 
-        <!-- ROBOLAB პროექტები -->
+        <!-- 2. ROBOLAB პროექტები -->
         <section id="robolab-projects">
             <h2>რობოტიკის კლუბი "ROBOLAB" -ის პროექტები</h2>
-            <p>ინოვაციური საინჟინრო მიღწევები და ავტომატიზრებული სისტემები:</p>
-            <ul>
-                <li><strong>ავტონომიური რობოტები:</strong> ლაბირინთის გამვლელი და ხაზის მიმყოლი რობოტების აწყობა.</li>
-                <li><strong>მრავალფუნქციური მექანიზმები:</strong> LEGO Mindstorms და Arduino პლატფორმებზე დაფუძნებული მოწყობილობები.</li>
-            </ul>
+            <p>ინოვაციური საინჟინრო მიღწევები და ავტომატიზრებული სისტემები.</p>
         </section>
 
-        <!-- ROBOLAB შეხვედრები -->
+        <!-- 3. ROBOLAB შეხვედრები (საქაღალდეები ნომრებით) -->
         <section id="robolab-meetings">
             <h2>რობოტიკის კლუბი "ROBOLAB" -ის შეხვედრები</h2>
-            <p>ჩვენი ყოველკვირეული შეხვედრები, დისკუსიები და პრაქტიკული ვორქშოფები.</p>
-            <p>ყოველკვირეული შეხვედრების სრული ფოტოარქივის სანახავად გადადით ალბომში:</p>
+            <p>ყოველკვირეული შეხვედრების ფოტომასალა დალაგებული საქაღალდეების მიხედვით:</p>
             
-            <!-- აქ ჩასვით თქვენი Google Drive / Cloud ფოლდერის ბმული -->
-            <a href="https://drive.google.com" target="_blank" class="album-btn">
-                📁 იხილეთ ყოველკვირეული შეხვედრების ფოტოები
-            </a>
-        </section>
-
-        <!-- გალერეა -->
-        <section id="gallery">
-            <h2>გალერეა</h2>
-            <p>ფოტომასალა ჩვენი კლუბების საქმიანობიდან:</p>
-            
-            <div class="gallery">
-                <!-- ფოტოების ჩამონათვალი (დაამატეთ რამდენი ფოტოც გინდათ) -->
-                <img src="robolab1.jpg" alt="robolab 1">
-                <img src="robolab2.jpg" alt="robolab 2">
-                <img src="robolab3.jpg" alt="robolab 3">
-            </div>
-        </section>
-
-        <!-- ინოვაციები -->
-        <section id="innovations">
-            <h2>ინოვაციები</h2>
-            <p>თანამედროვე ტექნოლოგიური ტენდენციები, იდეები და სამომავლო გეგმები:</p>
-            <ul>
-                <li>ხელოვნური ინტელექტისა და მანქანური სწავლების ელემენტები ჩვენს პროექტებში.</li>
-                <li>3D ბეჭდვისა და პროტოტიპირების ახალი შესაძლებლობები სკოლაში.</li>
-            </ul>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა | ყველა უფლება დაცულია</p>
-    </footer>
-
-</body>
-</html>
+            <div class="folder-grid">
+                <!-- საქაღალდე №1 -->
+                <div class="folder-card">
+                    <div class="folder-icon">📁</div>
+                    <div class="folder-title">საქაღალდე №1</div>
+                    <div class="
