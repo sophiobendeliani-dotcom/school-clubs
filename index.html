@@ -158,8 +158,9 @@
         const bySection = {};
         files.forEach(p => {
             const parts = p.split("/");
-            if (parts.length < 4) return;
-            const sec = parts[1].toLowerCase(), folder = parts[2];
+            if (parts.length < 3) return;
+const sec = parts[1].toLowerCase();
+const folder = parts.length === 3 ? "ფოტოები" : parts[2];
             (bySection[sec] = bySection[sec] || {});
             (bySection[sec][folder] = bySection[sec][folder] || []).push(p);
         });
