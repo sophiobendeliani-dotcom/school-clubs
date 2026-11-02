@@ -1,5 +1,244 @@
-photos
-  meetings/week1/...    ← ROBOLAB შეხვედრები
-  gallery/album1/...    ← გალერეა
-  steam/project1/...    ← STEAM პროექტები
-  robolab/project1/...  ← ROBOLAB პროექტები
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა - კლუბები</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f7f6; color: #333; scroll-behavior: smooth; }
+        nav { background: #2c3e50; padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        nav a { color: white; text-decoration: none; padding: 10px 12px; display: inline-block; font-weight: bold; font-size: 13px; transition: 0.3s; }
+        nav a:hover { background: #e67e22; border-radius: 4px; }
+
+        header { text-align: center; padding: 30px 20px; background: #34495e; color: white; }
+
+        .logos-container { text-align: center; background: white; padding: 15px; border-bottom: 2px solid #ecf0f1; display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; }
+        .logos-container img { height: 60px; object-fit: contain; }
+
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
+        section { background: white; margin: 25px 0; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 0; }
+
+        .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .folder-card { border: 2px solid #e0e0e0; padding: 15px; border-radius: 8px; text-align: center; background: #ffffff; transition: 0.3s; }
+        .folder-card:hover { border-color: #e67e22; background: #fffdf9; }
+        .folder-icon { font-size: 40px; margin-bottom: 5px; color: #f39c12; }
+        .folder-title { font-weight: bold; color: #2c3e50; font-size: 16px; margin-bottom: 4px; }
+        .folder-count { font-size: 12px; color: #888; margin-bottom: 8px; }
+
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin-top: 10px; }
+        .photo-grid img { width: 100%; height: 90px; object-fit: cover; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: 0.3s; cursor: zoom-in; }
+        .photo-grid img:hover { transform: scale(1.04); }
+        .more { margin-top: 10px; padding: 8px 14px; border: 0; border-radius: 4px; background: #2980b9; color: white; cursor: pointer; font-size: 13px; }
+        .more:hover { background: #e67e22; }
+        .empty { color: #888; font-style: italic; }
+
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; margin-top: 15px; border-radius: 8px; overflow: hidden; background: #000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+        #lightbox.open { display: flex; }
+        #lightbox img { max-width: 94%; max-height: 92%; border-radius: 6px; }
+
+        footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="logos-container">
+        <img src="school-logo.png" alt="სკოლის ლოგო">
+        <img src="steam-logo.png" alt="STEAM კლუბის ლოგო">
+        <img src="robolab-logo.png" alt="ROBOLAB ლოგო">
+    </div>
+
+    <nav>
+        <a href="#top">მთავარი</a>
+        <a href="#steam-projects">STEAM პროექტები</a>
+        <a href="#robolab-projects">ROBOLAB პროექტები</a>
+        <a href="#robolab-meetings">ROBOLAB შეხვედრები</a>
+        <a href="#gallery">გალერეა</a>
+        <a href="#videos">ვიდეოები</a>
+        <a href="#innovations">ინოვაციები</a>
+    </nav>
+
+    <header id="top">
+        <h1>სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა</h1>
+        <p>რობოტიკისა და STEAM კლუბების ოფიციალური ვებ-გვერდი</p>
+    </header>
+
+    <div class="container">
+
+        <section id="steam-projects">
+            <h2>STEAM პროექტები</h2>
+            <p>იხილეთ ჩვენი კლუბის ინოვაციური პროექტები და ფოტომასალა:</p>
+            <div class="folder-grid" id="steam-grid"><p class="empty">იტვირთება...</p></div>
+        </section>
+
+        <section id="robolab-projects">
+            <h2>რობოტიკის კლუბი "ROBOLAB" -ის პროექტები</h2>
+            <p>ინოვაციური საინჟინრო მიღწევები და ავტომატიზებული სისტემები.</p>
+            <div class="folder-grid" id="robolab-grid"></div>
+        </section>
+
+        <section id="robolab-meetings">
+            <h2>რობოტიკის კლუბი "ROBOLAB" -ის შეხვედრები</h2>
+            <p>ყოველკვირეული შეხვედრების ფოტომასალა დალაგებული საქაღალდეების მიხედვით:</p>
+            <div class="folder-grid" id="meetings-grid"></div>
+        </section>
+
+        <section id="gallery">
+            <h2>გალერეა</h2>
+            <p>ფოტოალბომები დალაგებული საქაღალდეების მიხედვით:</p>
+            <div class="folder-grid" id="gallery-grid"></div>
+        </section>
+
+        <section id="videos">
+            <h2>ვიდეოები</h2>
+            <p>ჩვენი კლუბის აქტივობებისა და პროექტების ვიდეომასალა:</p>
+            <div id="videos-list"></div>
+        </section>
+
+        <section id="innovations">
+            <h2>ინოვაციები</h2>
+            <p>თანამედროვე ტექნოლოგიური ტენდენციები და სამომავლო გეგმები სკოლაში.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა | ყველა უფლება დაცულია</p>
+    </footer>
+
+    <div id="lightbox"><img alt=""></div>
+
+    <script>
+    // ფოტოები თავისით ჩნდება საქაღალდეებიდან: photos/<სექცია>/<საქაღალდე>/ფოტოები
+    // სექციები: steam, robolab, meetings, gallery
+    const sections = {
+        steam: "steam-grid",
+        robolab: "robolab-grid",
+        meetings: "meetings-grid",
+        gallery: "gallery-grid"
+    };
+
+    // ვიდეოები (YouTube ვიდეოს ID: youtube.com/watch?v=ეს_ნაწილი)
+    const videos = [
+        { title: "კლუბის ვიდეო", id: "YOUR_VIDEO_ID" }
+    ];
+
+    let OWNER = "", REPO = "";
+    if (location.hostname.endsWith(".github.io")) {
+        OWNER = location.hostname.split(".")[0];
+        REPO = location.pathname.split("/")[1] || "";
+    }
+    if (!OWNER) { OWNER = "sophiobendeliani-dotcom"; REPO = "school-clubs"; }
+
+    const IMG_RE = /\.(jpe?g|png|gif|webp)$/i;
+    const PAGE = 12;
+
+    const collator = new Intl.Collator("ka", { numeric: true, sensitivity: "base" });
+    const enc = path => path.split("/").map(encodeURIComponent).join("/");
+
+    async function loadTree() {
+        const api = "https://api.github.com/repos/" + OWNER + "/" + REPO + "/git/trees/HEAD?recursive=1";
+        const cacheKey = "tree:" + OWNER + "/" + REPO;
+        try {
+            const cached = sessionStorage.getItem(cacheKey);
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        const res = await fetch(api);
+        if (!res.ok) throw new Error("GitHub " + res.status);
+        const data = await res.json();
+        const files = data.tree.filter(n => n.type === "blob" && n.path.indexOf("photos/") === 0 && IMG_RE.test(n.path)).map(n => n.path);
+        try { sessionStorage.setItem(cacheKey, JSON.stringify(files)); } catch (e) {}
+        return files;
+    }
+
+    function render(files) {
+        const bySection = {};
+        files.forEach(p => {
+            const parts = p.split("/");
+            if (parts.length < 4) return;
+            const sec = parts[1].toLowerCase(), folder = parts[2];
+            (bySection[sec] = bySection[sec] || {});
+            (bySection[sec][folder] = bySection[sec][folder] || []).push(p);
+        });
+
+        Object.keys(sections).forEach(sec => {
+            const grid = document.getElementById(sections[sec]);
+            grid.innerHTML = "";
+            const folders = Object.keys(bySection[sec] || {}).sort(collator.compare);
+            if (!folders.length) {
+                grid.outerHTML = '<p class="empty">მასალა მალე დაემატება.</p>';
+                return;
+            }
+            folders.forEach(name => {
+                const list = bySection[sec][name].sort(collator.compare);
+                const card = document.createElement("div");
+                card.className = "folder-card";
+                card.innerHTML = '<div class="folder-icon">📁</div><div class="folder-title"></div>' +
+                    '<div class="folder-count"></div><div class="photo-grid"></div>';
+                card.querySelector(".folder-title").textContent = name.replace(/_/g, " ");
+                card.querySelector(".folder-count").textContent = list.length + " ფოტო";
+                const photos = card.querySelector(".photo-grid");
+                let shown = 0;
+                let btn = null;
+                const addMore = () => {
+                    list.slice(shown, shown + PAGE).forEach((p, i) => {
+                        const img = document.createElement("img");
+                        img.src = enc(p);
+                        img.alt = name + " - ფოტო " + (shown + i + 1);
+                        img.loading = "lazy";
+                        img.onerror = function () { this.style.display = "none"; };
+                        photos.appendChild(img);
+                    });
+                    shown = Math.min(shown + PAGE, list.length);
+                    if (shown >= list.length && btn) btn.remove();
+                };
+                if (list.length > PAGE) {
+                    btn = document.createElement("button");
+                    btn.className = "more";
+                    btn.textContent = "მეტის ნახვა";
+                    btn.onclick = addMore;
+                }
+                addMore();
+                if (btn && shown < list.length) card.appendChild(btn);
+                grid.appendChild(card);
+            });
+        });
+    }
+
+    function buildVideos() {
+        const box = document.getElementById("videos-list");
+        videos.forEach(v => {
+            if (!v.id || v.id === "YOUR_VIDEO_ID") return;
+            const wrap = document.createElement("div");
+            wrap.className = "video-container";
+            wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + v.id + '" title="' + v.title + '" allowfullscreen></iframe>';
+            box.appendChild(wrap);
+        });
+        if (!box.children.length) box.innerHTML = '<p class="empty">ვიდეოები მალე დაემატება.</p>';
+    }
+
+    loadTree().then(render).catch(() => {
+        Object.values(sections).forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.outerHTML = '<p class="empty">ფოტოების ჩატვირთვა ვერ მოხერხდა. განაახლე გვერდი რამდენიმე წუთში.</p>';
+        });
+    });
+    buildVideos();
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    document.addEventListener("click", e => {
+        if (e.target.closest(".photo-grid") && e.target.tagName === "IMG") {
+            lightboxImg.src = e.target.src;
+            lightbox.classList.add("open");
+        } else {
+            lightbox.classList.remove("open");
+        }
+    });
+    </script>
+
+</body>
+</html>
