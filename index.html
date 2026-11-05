@@ -19,13 +19,26 @@
         section { background: white; margin: 25px 0; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         h2 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 0; }
 
-        /* ფოტოების ბადე (Grid) */
-        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 15px; }
-        .photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; cursor: pointer; }
-        .photo-grid img:hover { transform: scale(1.03); }
+        .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .folder-card { border: 2px solid #e0e0e0; padding: 15px; border-radius: 8px; text-align: center; background: #ffffff; transition: 0.3s; }
+        .folder-card:hover { border-color: #e67e22; background: #fffdf9; }
+        .folder-icon { font-size: 40px; margin-bottom: 5px; color: #f39c12; }
+        .folder-title { font-weight: bold; color: #2c3e50; font-size: 16px; margin-bottom: 4px; }
+        .folder-count { font-size: 12px; color: #888; margin-bottom: 8px; }
+
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin-top: 10px; }
+        .photo-grid img { width: 100%; height: 90px; object-fit: cover; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: 0.3s; cursor: zoom-in; }
+        .photo-grid img:hover { transform: scale(1.04); }
+        .more { margin-top: 10px; padding: 8px 14px; border: 0; border-radius: 4px; background: #2980b9; color: white; cursor: pointer; font-size: 13px; }
+        .more:hover { background: #e67e22; }
+        .empty { color: #888; font-style: italic; }
 
         .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; margin-top: 15px; border-radius: 8px; overflow: hidden; background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+        #lightbox.open { display: flex; }
+        #lightbox img { max-width: 94%; max-height: 92%; border-radius: 6px; }
 
         footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; font-size: 14px; }
     </style>
@@ -33,17 +46,19 @@
 <body>
 
     <div class="logos-container">
-        <img src="school-logo.png" alt="სკოლის ლოგო">
-        <img src="steam-logo.png" alt="STEAM კლუბის ლოგო">
-        <img src="robolab-logo.png" alt="ROBOLAB ლოგო">
+        <img src="school-logo.png" alt="სკოლის ლოგო" onerror="this.style.display='none'">
+        <img src="steam-logo.png" alt="STEAM კლუბის ლოგო" onerror="this.style.display='none'">
+        <img src="robolab-logo.png" alt="ROBOLAB ლოგო" onerror="this.style.display='none'">
     </div>
 
     <nav>
         <a href="#top">მთავარი</a>
         <a href="#steam-projects">STEAM პროექტები</a>
         <a href="#robolab-projects">ROBOLAB პროექტები</a>
+        <a href="#robolab-meetings">ROBOLAB შეხვედრები</a>
         <a href="#gallery">გალერეა</a>
         <a href="#videos">ვიდეოები</a>
+        <a href="#innovations">ინოვაციები</a>
     </nav>
 
     <header id="top">
@@ -53,47 +68,39 @@
 
     <div class="container">
 
-        <!-- STEAM პროექტების სექცია -->
         <section id="steam-projects">
             <h2>STEAM პროექტები</h2>
-            <p>იხილეთ ჩვენი კლუბის ინოვაციური პროექტები:</p>
-            
-            <div class="photo-grid">
-                <!-- აქ ჩაწერე შენი ფოტოების სახელები -->
-                <img src="steam1.jpg" alt="STEAM პროექტი 1">
-                <img src="steam2.jpg" alt="STEAM პროექტი 2">
-                <!-- თუ ახალი ფოტოს დამატება გინდა, უბრალოდ დააკოპირე ზედა ხაზი და სახელი შეუცვალე -->
-            </div>
+            <p>იხილეთ ჩვენი კლუბის ინოვაციური პროექტები და ფოტომასალა:</p>
+            <div class="folder-grid" id="steam-grid"><p class="empty">იტვირთება...</p></div>
         </section>
 
-        <!-- ROBOLAB პროექტების სექცია -->
         <section id="robolab-projects">
             <h2>რობოტიკის კლუბი "ROBOLAB" -ის პროექტები</h2>
             <p>ინოვაციური საინჟინრო მიღწევები და ავტომატიზებული სისტემები.</p>
-            
-            <div class="photo-grid">
-                <img src="robolab1.jpg" alt="რობოტიკა 1">
-                <img src="robolab2.jpg" alt="რობოტიკა 2">
-            </div>
+            <div class="folder-grid" id="robolab-grid"><p class="empty">იტვირთება...</p></div>
         </section>
 
-        <!-- გალერეის სექცია -->
+        <section id="robolab-meetings">
+            <h2>რობოტიკის კლუბი "ROBOLAB" -ის შეხვედრები</h2>
+            <p>ყოველკვირეული შეხვედრების ფოტომასალა დალაგებული საქაღალდეების მიხედვით:</p>
+            <div class="folder-grid" id="meetings-grid"><p class="empty">იტვირთება...</p></div>
+        </section>
+
         <section id="gallery">
             <h2>გალერეა</h2>
-            <p>ფოტოალბომები:</p>
-            
-            <div class="photo-grid">
-                <img src="photo1.jpg" alt="გალერეის ფოტო 1">
-                <img src="photo2.jpg" alt="გალერეის ფოტო 2">
-            </div>
+            <p>ფოტოალბომები დალაგებული საქაღალდეების მიხედვით:</p>
+            <div class="folder-grid" id="gallery-grid"><p class="empty">იტვირთება...</p></div>
         </section>
 
-        <!-- ვიდეოები -->
         <section id="videos">
             <h2>ვიდეოები</h2>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="ვიდეო" allowfullscreen></iframe>
-            </div>
+            <p>ჩვენი კლუბის აქტივობებისა და პროექტების ვიდეომასალა:</p>
+            <div id="videos-list"></div>
+        </section>
+
+        <section id="innovations">
+            <h2>ინოვაციები</h2>
+            <p>თანამედროვე ტექნოლოგიური ტენდენციები და სამომავლო გეგმები სკოლაში.</p>
         </section>
 
     </div>
@@ -102,5 +109,8 @@
         <p>&copy; 2026 სსიპ ქალაქ ზუგდიდის №4 საჯარო სკოლა | ყველა უფლება დაცულია</p>
     </footer>
 
-</body>
-</html>
+    <div id="lightbox"><img alt=""></div>
+
+    <script>
+        const sections = {
+            steam: "steam-
